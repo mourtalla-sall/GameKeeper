@@ -1,0 +1,16 @@
+{
+    "name": "touat/game-keeper",
+    "autoload": {
+        "psr-4": {
+            "Model\\": "src/Model/",
+            "src\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Mickael Touati",
+            "email": "mickael.touati@laplateforme.io"
+        }
+    ],
+    "require": {}
+}

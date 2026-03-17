@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: white;
+    height: 100vh;
+}
+
+.auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+}
+
+/* ───── CARTE COMMUNE ───── */
+.auth-container,
+.profil-card {
+    background: white;
+    padding: 5pc;
+    width: 50pc;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+
+/* ───── PROFIL ───── */
+.profil-card {
+    text-align: center;
+}
+
+.avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #f5c518;
+    color: #000;
+    font-size: 30px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+}
+
+.profil-name {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+.profil-email {
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.info-grid {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.info-label {
+    color: #888;
+    font-size: 14px;
+}
+
+.info-value {
+    font-weight: bold;
+    color: #333;
+}
+
+/* ───── MODIFIER PROFIL ───── */
+.auth-container h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.section-title {
+    font-weight: bold;
+    margin: 20px 0 8px;
+    color: #333;
+}
+
+.auth-container input {
+    width: 100%;
+    padding: 14px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    transition: 0.3s;
+    outline: none;
+}
+
+
+
+/* ───── BOUTONS ───── */
+.btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    background: #f5c518;
+    color: #000;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+
+/* ───── LIENS ───── */
+.back-link {
+    display: inline-block;
+    margin-bottom: 15px;
+    color: #f5c518;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+
+/* ───── MESSAGES ───── */
+.error {
+    color: red;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.success {
+    color: green;
+    text-align: center;
+    margin-bottom: 15px;
+}

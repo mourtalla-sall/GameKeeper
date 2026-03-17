@@ -5,10 +5,8 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-body {
-    background: linear-gradient(135deg, #002d7a 0%, #003fa8 40%, #0055c4 100%);
-    min-height: 100vh;
-    padding: 20px;
+body{
+    background: #002d7a;
 }
 
 h1 {
@@ -27,7 +25,6 @@ h2 {
     font-size: 1.3rem;
 }
 
-/* Stats cards */
 .stats {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -82,7 +79,6 @@ h2 {
     border-radius: 10px;
 }
 
-/* Tableau */
 .table-container {
     margin: 20px;
     background: white;
@@ -107,15 +103,6 @@ th, td {
     font-size: 0.9rem;
 }
 
-tbody tr:hover {
-    background-color: #f0f4ff;
-}
-
-tbody tr:not(:last-child) {
-    border-bottom: 1px solid #eee;
-}
-
-/* Image */
 .image_change {
     width: 60px;
     height: 60px;
@@ -123,7 +110,6 @@ tbody tr:not(:last-child) {
     border-radius: 6px;
 }
 
-/* Boutons */
 .btn-ajouter {
     display: inline-block;
     padding: 10px 20px;

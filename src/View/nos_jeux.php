@@ -20,7 +20,7 @@ $pdo = $database->getConnexion();
 ?>
 <link rel="stylesheet" href="view.css">
 <section>
-  
+      
 <div class="games-grid">  
 <?php
   foreach ($games as $game) {

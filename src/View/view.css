@@ -18,8 +18,8 @@ body {
 }
 
 .game-card {
-    background: #f5c518;
-    color: #000;
+    background: #0070d1;
+    color: #fff;
     box-shadow: 0 0 0 8px rgba(0, 112, 209, 0.25), 0 20px 50px rgba(0, 0, 0, 0.5);
     border-radius: 12px;
     overflow: hidden;
@@ -46,30 +46,32 @@ body {
     font-size: 1.1rem;
     font-weight: 700;
     margin-bottom: 0.4rem;
+    color: #fff;
 }
 
 .game-card .categorie {
     font-size: 0.8rem;
     font-weight: 600;
-    background: rgba(0, 0, 0, 0.15);
+    background: rgba(255, 255, 255, 0.2);
     display: inline-block;
     padding: 2px 10px;
     border-radius: 20px;
     margin-bottom: 0.6rem;
+    color: #fff;
 }
 
 .game-card p {
     font-size: 0.88rem;
     line-height: 1.5;
-    color: #222;
+    color: #e8f0fe;
 }
 
 .btn-voir {
     display: inline-block;
     margin-top: 0.8rem;
     padding: 8px 18px;
-    background: #000;
-    color: #f5c518;
+    background: #fff;
+    color: #0070d1;
     border-radius: 20px;
     text-decoration: none;
     font-size: 0.85rem;
@@ -78,9 +80,10 @@ body {
 }
 
 .btn-voir:hover {
-    background: #222;
+    background: #e8f0fe;
     transform: scale(1.05);
 }
+
 .detail-container {
     display: flex;
     gap: 3rem;
@@ -106,7 +109,7 @@ body {
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    color: #f5c518;
+    color: #0070d1;
 }
 
 .detail-badges {
@@ -117,8 +120,8 @@ body {
 }
 
 .badge {
-    background: #f5c518;
-    color: #000;
+    background: #0070d1;
+    color: #fff;
     font-size: 0.8rem;
     font-weight: 600;
     padding: 4px 14px;
@@ -140,7 +143,7 @@ body {
 }
 
 .meta-item {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(0, 112, 209, 0.1);
     border-radius: 10px;
     padding: 0.8rem 1rem;
 }
@@ -157,14 +160,14 @@ body {
 .meta-value {
     font-size: 1rem;
     font-weight: 600;
-    color: #f5c518;
+    color: #0070d1;
 }
 
 .btn-retour {
     display: inline-block;
     padding: 10px 22px;
-    background: #f5c518;
-    color: #000;
+    background: #0070d1;
+    color: #fff;
     border-radius: 20px;
     text-decoration: none;
     font-weight: 600;

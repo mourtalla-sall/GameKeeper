@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+body {
+    background: #002d7a;
+}
+
+.auth-page {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.auth-container {
+    background: white;
+    border-radius: 10px;
+    padding: 30px;
+    width: 100%;
+    max-width: 550px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+h1 {
+    font-size: 1.5rem;
+    color: #002d7a;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+label {
+    display: block;
+    font-size: 0.85rem;
+    color: #555;
+    margin-bottom: 4px;
+    margin-top: 14px;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 9px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-family: inherit;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: #003fa8;
+}
+
+p {
+    color: green;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+button[type="submit"] {
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+    background-color: #003fa8;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #002d7a;
+}
+
+button a {
+    display: flex;
+    justify-content: center;
+    color: #888;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 6px;
+}
+
+button a:hover {
+    color: #333;
+}

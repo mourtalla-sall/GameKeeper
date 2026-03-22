@@ -3,10 +3,10 @@
 require_once __DIR__ . '/../../../../vendor/autoload.php';
 require_once __DIR__ . '/../../../../db.php';
 
-use Model\admin_model\Game;
-use Model\admin_model\Plateform;
-use Model\admin_model\Categorie;
-use Model\admin_model\Publishers;
+use Gamekeeper\Model\admin_model\Game;
+use Gamekeeper\Model\admin_model\Plateform;
+use Gamekeeper\Model\admin_model\Categorie;
+use Gamekeeper\Model\admin_model\Publishers;
 
 function securityInput($input) {
     return trim(htmlspecialchars($input));
@@ -67,7 +67,7 @@ $publishers = $publisher->getAll();
 <head>
     <meta charset="UTF-8">
     <title>Modifier un Jeu</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="src/Views/admin/entity/style.css">
 </head>
 <body>
     <div class="auth-page">
@@ -125,7 +125,7 @@ $publishers = $publisher->getAll();
                 <button type="submit" name="submit">Mettre à jour</button>
             </form>
 
-            <button><a href="../index.php?page=dashboard">Annuler</a></button>
+            <button><a href="index.php?page=admin/dashboard">Annuler</a></button>
 
         </div>
     </div>

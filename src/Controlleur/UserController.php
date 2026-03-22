@@ -13,10 +13,10 @@ class UserController {
     public function register() {
         $error = '';
         if (isset($_POST['submit'])) {
-            $firstNa = trim($_POST['firstName']);
-            $lastName= trim($_POST['lastName']);
+            $firstName = trim($_POST['firstName']); 
+            $lastName = trim($_POST['lastName']);
             $email = trim($_POST['email']);
-            $password= $_POST['password'];
+            $password = $_POST['password'];
             $confirmPassword = $_POST['confirm_password'];
 
             if (empty($firstName) || empty($lastName) || empty($email) || empty($password)) {
@@ -29,7 +29,7 @@ class UserController {
                 $error = "Cet email existe déjà";
             } else {
                 if ($this->userModel->register($firstName, $lastName, $email, $password)) {
-                    header("Location: login.php?success=1");
+                    header("Location: index.php?page=login&success=1");
                     exit();
                 } else {
                     $error = "Erreur lors de l'inscription";
@@ -53,8 +53,14 @@ class UserController {
                     $_SESSION['user_id'] = $user['id'];
                     $_SESSION['firstName'] = $user['firstName'];
                     $_SESSION['role'] = $user['role'];
-                    header("Location: profil.php");
-                    exit();
+                    if ($user['role'] === 'admin') {
+                        header("Location: index.php?page=admin/dashboard");
+                        exit();
+                    }
+                    else{
+                      header("Location: index.php?page=profil");
+                        exit();  
+                    } 
                 } else {
                     $error = "Email ou mot de passe incorrect";
                 }
@@ -65,7 +71,7 @@ class UserController {
 
     public function profil() {
         if (!isset($_SESSION['user_id'])) {
-            header("Location: login.php");
+            header("Location: index.php?page=login");
             exit();
         }
 

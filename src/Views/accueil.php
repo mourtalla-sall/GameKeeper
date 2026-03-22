@@ -1,7 +1,7 @@
 <?php
 require_once './src/Views/Navigation/Header.php';
-require_once 'db.php';
-
+// require_once 'db.php';
+use Gamekeeper\Database;
 
 
 
@@ -41,7 +41,7 @@ $resultats = $data->fetchAll(PDO::FETCH_ASSOC);
                     echo "<img src='' alt='img'>";
                     echo "<h1>Jeux $name</h1>";
                     echo "<p> $description </p>";
-                    echo "<a href='categorie_detail.php?id={$value['id']}' class='btn-voir'>Voir tout</a>";
+                    echo "<a href='index.php?page=categorie_detail&id={$value['id']}' class='btn-voir'>Voir tout</a>";
 
                 echo "</div>";
                    

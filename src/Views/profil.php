@@ -1,13 +1,17 @@
 <?php
-session_start();
 require_once __DIR__ . '/../../vendor/autoload.php';
+
+
+require_once './src/Views/Navigation/Header.php';
+
+
 
 use Gamekeeper\Controlleur\UserController;
 
 $controller = new UserController();
 
 if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
+    header("Location: index.php?page=login");
     exit();
 }
 
@@ -18,7 +22,7 @@ $user = (new \Gamekeeper\Model\User())->getuserbyid($_SESSION['user_id']);
 <head>
     <meta charset="UTF-8">
     <title>Mon Profil</title>
-    <link rel="stylesheet" href="auht.css">
+    <link rel="stylesheet" href="src/Views/auht.css">
 </head>
 <body>
 <div class="auth-page">
@@ -48,8 +52,11 @@ $user = (new \Gamekeeper\Model\User())->getuserbyid($_SESSION['user_id']);
             </div>
         </div>
 
-        <a href="modifieprofil.php" class="btn">Modifier le profil</a>
-        <a href="Deconnexion.php" class="btn">Se déconnecter</a>
+        <a href="index.php?page=modifieprofil" class="btn">Modifier le profil</a>
+        <a href="index.php?page=Deconnexion" class="btn">Se déconnecter</a>
 
     </div>
 </div>
+<?php
+require_once './src/Views/Navigation/Footer.php'
+?>

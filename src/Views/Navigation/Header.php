@@ -24,8 +24,11 @@
             <?php
                 if (isset($_SESSION['user_id'])) {
 
+                    echo'<li><a href="index.php?page=accueil">Acceuil</a></li>';
+                    echo'<li><a href="index.php?page=nos_jeux">Nos Jeux</a></li>';
                     echo '<li><a href="index.php?page=profil">Profil</a></li>';
                     echo '<li><a href="index.php?page=Deconnexion">Déconnexion</a></li>';
+
                     
                 } else {
                     echo'<li><a href="index.php?page=accueil">Acceuil</a></li>';

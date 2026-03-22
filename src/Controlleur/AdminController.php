@@ -1,10 +1,14 @@
 <?php
-require_once __DIR__ . '/../../db.php';
+namespace Gamekeeper\Controlleur;
 
-use Model\admin_model\Game;
-use Model\admin_model\Plateform;
-use Model\admin_model\Categorie;
-use Model\admin_model\Publishers;
+// require_once __DIR__ . '/../../db.php';
+
+
+use Gamekeeper\Model\admin_model\Game;
+use Gamekeeper\Model\admin_model\Plateform;
+use Gamekeeper\Model\admin_model\Categorie;
+use Gamekeeper\Model\admin_model\Publishers;
+use Gamekeeper\Database;
 
 class AdminController {
 
@@ -31,7 +35,8 @@ class AdminController {
 
         $games = (new Game())->getAll();
 
-        require_once __DIR__ . '/../View/admin/dashboard.php';
+        // ✅ Chemin correct depuis src/Controlleur/
+        require_once __DIR__ . '/../Views/admin/dashboard.php';
     }
 
     public function gameForm() {
@@ -44,52 +49,51 @@ class AdminController {
             $game = (new Game())->getById((int)$_GET['id']);
         }
 
-        require_once __DIR__ . '/../View/admin/entity/create_game.php';
+        require_once __DIR__ . '/../Views/admin/entity/create_game.php';
     }
 
     public function saveGame() {
-    $title       = $_POST['title'];
-    $description = $_POST['description'];
-    $releaseDate = $_POST['release_date'];
-    $platformId  = $_POST['platform_id'];
-    $categorieId = $_POST['categorie_id'];
-    $publisherId = $_POST['publisher_id'];
+        $title       = $_POST['title'];
+        $description = $_POST['description'];
+        $releaseDate = $_POST['release_date'];
+        $platformId  = $_POST['platform_id'];
+        $categorieId = $_POST['categorie_id'];
+        $publisherId = $_POST['publisher_id'];
 
-    $coverImage = null;
-    if (!empty($_FILES['cover_image']['name'])) {
-        $allowed = ['image/jpeg', 'image/png', 'image/webp'];
-        $maxSize = 5 * 1024 * 1024;
+        $coverImage = null;
+        if (!empty($_FILES['cover_image']['name'])) {
+            $allowed = ['image/jpeg', 'image/png', 'image/webp'];
+            $maxSize = 5 * 1024 * 1024;
 
-        if (!in_array($_FILES['cover_image']['type'], $allowed)) {
-            die("Format non supporté. JPG, PNG ou WEBP uniquement.");
+            if (!in_array($_FILES['cover_image']['type'], $allowed)) {
+                die("Format non supporté. JPG, PNG ou WEBP uniquement.");
+            }
+            if ($_FILES['cover_image']['size'] > $maxSize) {
+                die("Image trop lourde. Maximum 5MB.");
+            }
+
+            $ext       = pathinfo($_FILES['cover_image']['name'], PATHINFO_EXTENSION);
+            $filename  = uniqid('game_') . '.' . $ext;
+            $uploadDir = __DIR__ . '/../../upload/';
+            move_uploaded_file($_FILES['cover_image']['tmp_name'], $uploadDir . $filename);
+            $coverImage = $filename;
         }
-        if ($_FILES['cover_image']['size'] > $maxSize) {
-            die("Image trop lourde. Maximum 5MB.");
+
+        $gameModel = new Game();
+        if (isset($_POST['id'])) {
+            $gameModel->update((int)$_POST['id'], $title, $description, $releaseDate, $coverImage, $platformId, $categorieId, $publisherId);
+        } else {
+            $gameModel->create($title, $description, $releaseDate, $coverImage, $platformId, $categorieId, $publisherId);
         }
 
-        // Sauvegarde du fichier
-        $ext      = pathinfo($_FILES['cover_image']['name'], PATHINFO_EXTENSION);
-        $filename = uniqid('game_') . '.' . $ext;
-        $uploadDir = __DIR__ . '/../../upload/';
-        move_uploaded_file($_FILES['cover_image']['tmp_name'], $uploadDir . $filename);
-        $coverImage = $filename;
+        header('Location: index.php?page=admin/dashboard');
+        exit;
     }
-
-    $gameModel = new Game();
-    if (isset($_POST['id'])) {
-        $gameModel->update((int)$_POST['id'], $title, $description, $releaseDate, $coverImage, $platformId, $categorieId, $publisherId);
-    } else {
-        $gameModel->create($title, $description, $releaseDate, $coverImage, $platformId, $categorieId, $publisherId);
-    }
-
-    header('Location: index.php?page=dashboard');
-    exit;
-}
 
     public function deleteGame() {
         $gameModel = new Game();
         $gameModel->delete((int)$_GET['id']);
-        header('Location: index.php?page=dashboard');
+        header('Location: index.php?page=admin/dashboard');
         exit;
     }
 }

@@ -2,7 +2,7 @@
 // delete_game.php
 require_once 'vendor/autoload.php';
 
-use Model\admin_model\Game;
+use Gamekeeper\Model\admin_model\Game;
 
 $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
@@ -53,7 +53,7 @@ if (isset($_POST['confirm'])) {
                 <button type="submit" name="confirm">Confirmer la suppression</button>
             </form>
 
-            <button><a href="dashboard.php">Annuler</a></button>
+            <button><a href="index.php?page=admin/dashboard">Annuler</a></button>
 
         </div>
     </div>

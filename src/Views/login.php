@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once __DIR__ . '/../../vendor/autoload.php';
 
 require_once './src/Views/Navigation/Header.php';
@@ -15,7 +14,7 @@ $error = $controller->login();
 <head>
     <meta charset="UTF-8">
     <title>Connexion</title>
-    <link rel="stylesheet" href="./auht.css">
+    <link rel="stylesheet" href="src/Views/auht.css">
 </head>
 <body>
 <div class="auth-page">
@@ -26,7 +25,7 @@ $error = $controller->login();
             <input type="password" name="password" placeholder="Mot de passe" required>
             <button type="submit" name="submit" class="btn">Se connecter</button>
         </form>
-        <p>Pas encore de compte ? <a href="register.php" class="back-link">Inscrivez-vous</a></p>
+        <p>Pas encore de compte ? <a href="index.php?page=register" class="back-link">Inscrivez-vous</a></p>
     </div>
 </div>
 <?php

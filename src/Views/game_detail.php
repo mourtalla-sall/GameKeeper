@@ -1,6 +1,8 @@
 <?php
 require_once __DIR__ . '/../../db.php';
 
+use Gamekeeper\Database;
+
 $database = Database::getInstance();
 $pdo = $database->getConnexion();
 
@@ -17,11 +19,11 @@ $data->execute([':id' => $id]);
 $game = $data->fetch(PDO::FETCH_ASSOC);
 
 if (!$game) {
-    die("Jeu introuvable.");
+    echo "Jeu introuvable.";
 }
 ?>
 
-<link rel="stylesheet" href="view.css">
+<link rel="stylesheet" href="src/Views/view.css">
 
 <div class="detail-container">
     <div class="detail-cover">
@@ -58,7 +60,7 @@ if (!$game) {
             </div>
         </div>
 
-        <a href="nos_jeux.php" class="btn-retour"> Retour aux jeux</a>
+        <a href="index.php?page=nos_jeux" class="btn-retour"> Retour aux jeux</a>
     </div>
 </div>
 <?php

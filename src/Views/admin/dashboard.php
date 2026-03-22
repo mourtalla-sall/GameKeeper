@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Dashboard - GameKeeper</title>
-    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="src/Views/admin/admin.css">
 </head>
 <body>
 
@@ -42,7 +42,7 @@
 
 <h2>Liste des jeux</h2>
 
-<a href="index.php?page=gameForm" class="btn-ajouter">Ajouter un jeu</a>
+<a href="index.php?page=admin/gameForm" class="btn-ajouter">Ajouter un jeu</a>
 <div class="table-container">
 <table>
     <thead>
@@ -73,15 +73,18 @@
             <td><?= htmlspecialchars($game['publisher'] ?? '—') ?></td>
             <td><?= $game['release_date'] ?? '—' ?></td>
             <td>
-                <a href="entity/update_game.php?id=<?= $game['id'] ?>" class="btn-modifier">Modifier</a>
-                <a href="index.php?page=deleteGame&id=<?= $game['id'] ?>" class="btn-supprimer" 
+                <a href="index.php?page=admin/gameForm&id=<?= $game['id'] ?>" class="btn-modifier">Modifier</a>
+               <a href="index.php?page=admin/deleteGame&id=<?= $game['id'] ?>" class="btn-supprimer"
                 onclick="return confirm('Supprimer ce jeu ?')">Supprimer</a>
+
             </td>
         </tr>
         <?php endforeach; ?>
     </tbody>
 </table>
+
 </div>
+        <a href="index.php?page=Deconnexion" class="btn">Se déconnecter</a>
 
 </body>
 </html>

@@ -1,8 +1,8 @@
 <?php
 
-namespace Model\admin_model;
+namespace Gamekeeper\Model\admin_model;
 
-use \Database;
+use Gamekeeper\Database;
 
 use \PDO;
 

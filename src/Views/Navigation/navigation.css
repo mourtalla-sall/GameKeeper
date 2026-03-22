@@ -73,14 +73,13 @@ a:hover {
         position: sticky;
         top: 0;
         background: #fff;
-       
     }
+
     .logo {
         display: flex;
         width: 200px;
         height: 60px;
     }
-
 
     .checkbtn {
         display: block;
@@ -88,7 +87,7 @@ a:hover {
 
     nav ul {
         position: absolute;
-        top: 100%;  
+        top: 100%;
         left: 0;
         width: 100%;
         height: auto;
@@ -119,5 +118,103 @@ a:hover {
 
     #check:checked ~ ul {
         transform: translateX(0);
+    }
+}
+
+/* ── FOOTER ── */
+footer {
+    background: #003fa8;
+    color: #fff;
+    padding: 3rem 2rem 1rem;
+    margin-top: 4rem;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.footer-logo img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.footer-slogan {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-top: 0.5rem;
+}
+
+.footer-links h4,
+.footer-social h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #f5c518;
+}
+
+.footer-links ul {
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer-links ul li a {
+    color: #fff;
+    font-size: 0.9rem;
+    border-bottom: none;
+    opacity: 0.85;
+    transition: opacity 0.2s;
+}
+
+.footer-links ul li a:hover {
+    opacity: 1;
+    color: #f5c518;
+    border-bottom: none;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 1.3rem;
+    border-bottom: none;
+    transition: color 0.2s;
+}
+
+.social-icons a:hover {
+    color: #f5c518;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+
+/* ── FOOTER RESPONSIVE ── */
+@media screen and (max-width: 767px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-links ul {
+        align-items: center;
+    }
+
+    .social-icons {
+        justify-content: center;
     }
 }

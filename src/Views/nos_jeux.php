@@ -4,6 +4,9 @@ require_once __DIR__ . '/../../db.php';
 
 require_once './src/Views/Navigation/Header.php';
 
+
+use Gamekeeper\Database;
+
 $database = Database::getInstance();
 $pdo = $database->getConnexion();
 
@@ -19,7 +22,7 @@ $pdo = $database->getConnexion();
 
 
 ?>
-<link rel="stylesheet" href="./view.css">
+<link rel="stylesheet" href="src/Views/view.css">
 <section>
       
 <div class="games-grid">  
@@ -37,7 +40,7 @@ $pdo = $database->getConnexion();
               <h2>$title</h2>
               <span class='categorie'>$categorie</span>
               <p>$description</p>
-              <a href='game_detail.php?id={$game['id']}' class='btn-voir'>Voir tout</a>
+              <a href='index.php?page=game_detail&id={$game['id']}' class='btn-voir'>Voir tout</a>
           </div>
       </div>
     ";

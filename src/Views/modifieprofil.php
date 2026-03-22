@@ -1,6 +1,9 @@
 <?php
-session_start();
 require_once __DIR__ . '/../../vendor/autoload.php';
+
+require_once './src/Views/Navigation/Header.php';
+
+
 
 use Gamekeeper\Controlleur\UserController;
 
@@ -15,7 +18,7 @@ $success = $data['success'];
 <head>
     <meta charset="UTF-8">
     <title>Modifier le profil</title>
-    <link rel="stylesheet" href="auht.css">
+    <link rel="stylesheet" href="src/Views/auht.css">
     
 </head>
 <body>
@@ -41,8 +44,11 @@ $success = $data['success'];
         </form>
 
         <form method="POST">
-            <a href="profil.php" name="delete_account" class="btn"> Annuler </a>
+            <a href="index.php?page=profil" name="delete_account" class="btn"> Annuler </a>
         </form>
 
     </div>
 </div>
+<?php
+require_once './src/Views/Navigation/Footer.php'
+?>

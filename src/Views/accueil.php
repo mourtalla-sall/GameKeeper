@@ -1,5 +1,5 @@
 <?php
-require_once './src/View/Navigation/Header.php';
+require_once './src/Views/Navigation/Header.php';
 require_once 'db.php';
 
 
@@ -21,7 +21,7 @@ $resultats = $data->fetchAll(PDO::FETCH_ASSOC);
         <div class="content-text">
             <H1>Bienvenue au GameKeeper</H1>
             <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.</p>
-            <a href="./src/View/nos_jeux.php">
+            <a href="index.php?page=nos_jeux">
                 <button class="content-btn">Savoir Plus</button>
             </a>
         </div>
@@ -57,5 +57,5 @@ $resultats = $data->fetchAll(PDO::FETCH_ASSOC);
   
 
 <?php
-require_once './src/View/Navigation/Footer.php'
+require_once './src/Views/Navigation/Footer.php'
 ?>

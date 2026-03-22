@@ -2,6 +2,7 @@
 
 require_once __DIR__ . '/../../db.php';
 
+require_once './src/Views/Navigation/Header.php';
 
 $database = Database::getInstance();
 $pdo = $database->getConnexion();
@@ -18,7 +19,7 @@ $pdo = $database->getConnexion();
 
 
 ?>
-<link rel="stylesheet" href="view.css">
+<link rel="stylesheet" href="./view.css">
 <section>
       
 <div class="games-grid">  
@@ -44,3 +45,7 @@ $pdo = $database->getConnexion();
 ?>
 </div>  
 </section>
+<?php
+require_once './src/Views/Navigation/Footer.php'
+
+?>

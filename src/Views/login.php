@@ -2,6 +2,9 @@
 session_start();
 require_once __DIR__ . '/../../vendor/autoload.php';
 
+require_once './src/Views/Navigation/Header.php';
+
+
 use Gamekeeper\Controlleur\UserController;
 
 $controller = new UserController();
@@ -12,7 +15,7 @@ $error = $controller->login();
 <head>
     <meta charset="UTF-8">
     <title>Connexion</title>
-    <link rel="stylesheet" href="auht.css">
+    <link rel="stylesheet" href="./auht.css">
 </head>
 <body>
 <div class="auth-page">
@@ -26,5 +29,9 @@ $error = $controller->login();
         <p>Pas encore de compte ? <a href="register.php" class="back-link">Inscrivez-vous</a></p>
     </div>
 </div>
+<?php
+require_once './src/Views/Navigation/Footer.php'
+
+?>
 </body>
 </html>

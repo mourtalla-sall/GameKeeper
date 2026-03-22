@@ -61,3 +61,7 @@ if (!$game) {
         <a href="nos_jeux.php" class="btn-retour"> Retour aux jeux</a>
     </div>
 </div>
+<?php
+require_once './src/Views/Navigation/Footer.php'
+
+?>

@@ -1,18 +1,18 @@
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 
-use TestAutoloading\Views\View;
+use Gamekeeper\Views\View;
 
 
-session_start();
-require_once __DIR__ . '/../../vendor/autoload.php';
+// session_start();
 
-if (isset($_SESSION['user_id'])) {
-    header("Location: src/View/profil.php");
-} else {
-    header("Location: src/View/login.php");
-}
-exit();
+
+// if (isset($_SESSION['user_id'])) {
+//     header("Location: src/View/profil.php");
+// } else {
+//     header("Location: src/View/login.php");
+// }
+// exit();
 
 
 
@@ -24,7 +24,7 @@ if (isset($_GET['page'])) {
     $page = 'accueil';
 }
 
-$pagesAutorisees = ['accueil', 'inscription', 'connexion'];
+$pagesAutorisees = ['accueil', 'register', 'login', 'nos_jeux', 'Footer', 'Deconnexion', 'profil'];
 
 if (!in_array($page, $pagesAutorisees)) {
     $page = 'accueil';

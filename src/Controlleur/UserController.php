@@ -13,10 +13,10 @@ class UserController {
     public function register() {
         $error = '';
         if (isset($_POST['submit'])) {
-            $firstName       = trim($_POST['firstName']);
-            $lastName        = trim($_POST['lastName']);
-            $email           = trim($_POST['email']);
-            $password        = $_POST['password'];
+            $firstNa = trim($_POST['firstName']);
+            $lastName= trim($_POST['lastName']);
+            $email = trim($_POST['email']);
+            $password= $_POST['password'];
             $confirmPassword = $_POST['confirm_password'];
 
             if (empty($firstName) || empty($lastName) || empty($email) || empty($password)) {
@@ -42,7 +42,7 @@ class UserController {
     public function login() {
         $error = '';
         if (isset($_POST['submit'])) {
-            $email    = trim($_POST['email']);
+            $email = trim($_POST['email']);
             $password = $_POST['password'];
 
             if (empty($email) || empty($password)) {
@@ -50,9 +50,9 @@ class UserController {
             } else {
                 $user = $this->userModel->login($email, $password);
                 if ($user) {
-                    $_SESSION['user_id']   = $user['id'];
+                    $_SESSION['user_id'] = $user['id'];
                     $_SESSION['firstName'] = $user['firstName'];
-                    $_SESSION['role']      = $user['role'];
+                    $_SESSION['role'] = $user['role'];
                     header("Location: profil.php");
                     exit();
                 } else {
@@ -69,15 +69,14 @@ class UserController {
             exit();
         }
 
-        $error   = '';
+        $error = '';
         $success = '';
-        $user    = $this->userModel->getuserbyid($_SESSION['user_id']);
+        $user = $this->userModel->getuserbyid($_SESSION['user_id']);
 
         if (isset($_POST['update_profile'])) {
             $firstName = trim($_POST['firstName']);
-            $lastName  = trim($_POST['lastName']);
-            $email     = trim($_POST['email']);
-
+            $lastName = trim($_POST['lastName']);
+            $email = trim($_POST['email']);
             if (empty($firstName) || empty($lastName) || empty($email)) {
                 $error = "Tous les champs sont requis";
             } elseif ($this->userModel->emailotheruser($email, $_SESSION['user_id'])) {
@@ -86,7 +85,7 @@ class UserController {
                 if ($this->userModel->updateprofile($_SESSION['user_id'], $firstName, $lastName, $email)) {
                     $_SESSION['firstName'] = $firstName;
                     $success = "Profil mis à jour avec succès";
-                    $user    = $this->userModel->getuserbyid($_SESSION['user_id']);
+                    $user = $this->userModel->getuserbyid($_SESSION['user_id']);
                 } else {
                     $error = "Erreur lors de la mise à jour";
                 }
@@ -95,7 +94,7 @@ class UserController {
 
         if (isset($_POST['update_password'])) {
             $currentPassword = $_POST['current_password'];
-            $newPassword     = $_POST['new_password'];
+            $newPassword = $_POST['new_password'];
             $confirmPassword = $_POST['confirm_password'];
 
             if (empty($currentPassword) || empty($newPassword) || empty($confirmPassword)) {

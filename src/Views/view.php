@@ -1,5 +1,5 @@
 <?php
-namespace TestAutoloading\Views;
+namespace Gamekeeper\Views;
 
 class View
 {

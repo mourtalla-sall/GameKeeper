@@ -1,6 +1,10 @@
 <?php
 require_once __DIR__ . '/../../db.php';
 
+
+require_once './src/Views/Navigation/Header.php';
+
+
 use Gamekeeper\Database;
 
 $database = Database::getInstance();

@@ -1,4 +1,7 @@
 <?php
+// Login à la base de donnée avec des variables, faciles a modifié si changement de mot de passe ou de db
+
+
 
 
 class Database {
@@ -20,9 +23,12 @@ class Database {
         }
         return self::$instance;
     }
-
-    public function getConnexion(): PDO {
+    public function getConnexion(): PDO{
         return $this->pdo;
     }
 }
+
+
+
+
 ?>

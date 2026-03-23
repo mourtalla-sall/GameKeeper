@@ -71,7 +71,7 @@ class AdminController {
         // Sauvegarde du fichier
         $ext = pathinfo($_FILES['cover_image']['name'], PATHINFO_EXTENSION);
         $filename = uniqid('game_') . '.' . $ext;
-        $uploadDir = __DIR__ . '/../../upload/';
+        $uploadDir = __DIR__ . '/../upload/';
         move_uploaded_file($_FILES['cover_image']['tmp_name'], $uploadDir . $filename);
         $coverImage = $filename;
     }

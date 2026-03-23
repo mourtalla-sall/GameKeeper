@@ -60,7 +60,7 @@ $publishers = $publisher->getAll();
                 <p><?= $message ?></p>
             <?php endif; ?>
 
-            <form method="post" enctype="multipart/form-data">
+            <form method="post" action="index.php?page=saveGame" enctype="multipart/form-data">
                 <h1>Créer un Jeu</h1>
 
                 <label>Titre du Jeu</label>
@@ -99,7 +99,7 @@ $publishers = $publisher->getAll();
                 <button type="submit" name="submit">Créer</button>
             </form>
 
-            <button><a href="index.php?page=dashboard">Annuler</a></button>
+            <button class="btn-annuler"><a href="index.php?page=dashboard">Annuler</a></button>
 
         </div>
     </div>

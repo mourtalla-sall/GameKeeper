@@ -44,7 +44,7 @@ $success = $data['success'];
         </form>
 
         <form method="POST">
-            <a href="index.php?page=profil" name="delete_account" class="btn"> Annuler </a>
+            <a href="index.php?page=profil" name="delete_account" class="btn-annuler"> Annuler </a>
         </form>
 
     </div>

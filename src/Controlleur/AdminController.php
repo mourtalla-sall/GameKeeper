@@ -1,14 +1,13 @@
 <?php
 namespace Gamekeeper\Controlleur;
-
-// require_once __DIR__ . '/../../db.php';
-
+require_once __DIR__ . '/../../db.php';
 
 use Gamekeeper\Model\admin_model\Game;
 use Gamekeeper\Model\admin_model\Plateform;
 use Gamekeeper\Model\admin_model\Categorie;
 use Gamekeeper\Model\admin_model\Publishers;
 use Gamekeeper\Database;
+
 
 class AdminController {
 
@@ -35,7 +34,6 @@ class AdminController {
 
         $games = (new Game())->getAll();
 
-        // ✅ Chemin correct depuis src/Controlleur/
         require_once __DIR__ . '/../Views/admin/dashboard.php';
     }
 
@@ -53,42 +51,44 @@ class AdminController {
     }
 
     public function saveGame() {
-        $title       = $_POST['title'];
-        $description = $_POST['description'];
-        $releaseDate = $_POST['release_date'];
-        $platformId  = $_POST['platform_id'];
-        $categorieId = $_POST['categorie_id'];
-        $publisherId = $_POST['publisher_id'];
+    $title       = $_POST['title'];
+    $description = $_POST['description'];
+    $releaseDate = $_POST['release_date'];
+    $platformId  = $_POST['platform_id'];
+    $categorieId = $_POST['categorie_id'];
+    $publisherId = $_POST['publisher_id'];
 
-        $coverImage = null;
-        if (!empty($_FILES['cover_image']['name'])) {
-            $allowed = ['image/jpeg', 'image/png', 'image/webp'];
-            $maxSize = 5 * 1024 * 1024;
+    $coverImage = null;
+    if (!empty($_FILES['cover_image']['name'])) {
+        $allowed = ['image/jpeg', 'image/png', 'image/webp'];
+        $maxSize = 5 * 1024 * 1024;
 
-            if (!in_array($_FILES['cover_image']['type'], $allowed)) {
-                die("Format non supporté. JPG, PNG ou WEBP uniquement.");
-            }
-            if ($_FILES['cover_image']['size'] > $maxSize) {
-                die("Image trop lourde. Maximum 5MB.");
-            }
 
-            $ext       = pathinfo($_FILES['cover_image']['name'], PATHINFO_EXTENSION);
-            $filename  = uniqid('game_') . '.' . $ext;
-            $uploadDir = __DIR__ . '/../../upload/';
-            move_uploaded_file($_FILES['cover_image']['tmp_name'], $uploadDir . $filename);
-            $coverImage = $filename;
+        if (!in_array($_FILES['cover_image']['type'], $allowed)) {
+            die("Format non supporté. JPG, PNG ou WEBP uniquement.");
+        }
+        if ($_FILES['cover_image']['size'] > $maxSize) {
+            die("Image trop lourde. Maximum 5MB.");
         }
 
-        $gameModel = new Game();
-        if (isset($_POST['id'])) {
-            $gameModel->update((int)$_POST['id'], $title, $description, $releaseDate, $coverImage, $platformId, $categorieId, $publisherId);
-        } else {
-            $gameModel->create($title, $description, $releaseDate, $coverImage, $platformId, $categorieId, $publisherId);
-        }
-
-        header('Location: index.php?page=admin/dashboard');
-        exit;
+        // Sauvegarde du fichier
+        $ext = pathinfo($_FILES['cover_image']['name'], PATHINFO_EXTENSION);
+        $filename = uniqid('game_') . '.' . $ext;
+        $uploadDir = __DIR__ . '/../upload/';
+        move_uploaded_file($_FILES['cover_image']['tmp_name'], $uploadDir . $filename);
+        $coverImage = $filename;
     }
+
+    $gameModel = new Game();
+    if (isset($_POST['id'])) {
+        $gameModel->update((int)$_POST['id'], $title, $description, $releaseDate, $coverImage, $platformId, $categorieId, $publisherId);
+    } else {
+        $gameModel->create($title, $description, $releaseDate, $coverImage, $platformId, $categorieId, $publisherId);
+    }
+
+    header('Location: index.php?page=admin/dashboard');
+    exit;
+}
 
     public function deleteGame() {
         $gameModel = new Game();

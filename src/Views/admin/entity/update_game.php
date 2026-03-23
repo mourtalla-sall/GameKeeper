@@ -77,7 +77,7 @@ $publishers = $publisher->getAll();
                 <p><?= $message ?></p>
             <?php endif; ?>
 
-            <form method="post" enctype="multipart/form-data">
+            <form method="post" action="index.php?page=admin/saveGame" enctype="multipart/form-data">
                 <h1>Modifier un Jeu</h1>
 
                 <label>Titre du Jeu</label>
@@ -125,7 +125,7 @@ $publishers = $publisher->getAll();
                 <button type="submit" name="submit">Mettre à jour</button>
             </form>
 
-            <button><a href="index.php?page=admin/dashboard">Annuler</a></button>
+            <button class="btn-annuler" ><a  href="index.php?page=admin/dashboard">Annuler</a></button>
 
         </div>
     </div>

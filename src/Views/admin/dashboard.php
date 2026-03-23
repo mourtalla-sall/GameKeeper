@@ -61,11 +61,7 @@
         <?php foreach ($games as $game): ?>
         <tr>
             <td>
-            
-              
-               <img src="../../upload/<?= $game['cover_image'] ?>" style="height:60px; border-radius:4px">
-
-                
+               <img src="../../upload/<?= $game['cover_image'] ?>" >
             </td>
             <td><?= htmlspecialchars($game['title']) ?></td>
             <td><?= htmlspecialchars($game['platform'] ?? '—') ?></td>

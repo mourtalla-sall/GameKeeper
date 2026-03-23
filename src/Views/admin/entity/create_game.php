@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
         } elseif ($_FILES['cover_image']['size'] > $maxSize) {
             $message = "Image trop lourde. Maximum 5MB.";
         } else {
-            $ext       = pathinfo($_FILES['cover_image']['name'], PATHINFO_EXTENSION);
+            $ext  = pathinfo($_FILES['cover_image']['name'], PATHINFO_EXTENSION);
             $filename  = uniqid('game_') . '.' . $ext;
             $uploadDir = __DIR__ . '/../../../../upload/';
             move_uploaded_file($_FILES['cover_image']['tmp_name'], $uploadDir . $filename);
@@ -84,10 +84,10 @@ $publishers = (new Publishers())->getAll();
                 </p>
             <?php endif; ?>
 
-            <form method="post" enctype="multipart/form-data">
+            <form method="post" action="index.php?page=admin/saveGame" enctype="multipart/form-data">
                 <h1><?= $isEdit ? 'Modifier le Jeu' : 'Créer un Jeu' ?></h1>
 
-                <!-- ✅ Champ caché pour l'id en cas de modification -->
+                <!--  Champ caché pour l'id en cas de modification -->
                 <?php if ($isEdit): ?>
                     <input type="hidden" name="id" value="<?= (int)$_GET['id'] ?>">
                 <?php endif; ?>
@@ -139,7 +139,7 @@ $publishers = (new Publishers())->getAll();
                 </button>
             </form>
 
-            <button><a href="index.php?page=admin/dashboard">Annuler</a></button>
+            <button class="btn-annuler"><a  href="index.php?page=admin/dashboard">Annuler</a></button>
 
         </div>
     </div>

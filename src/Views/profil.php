@@ -53,7 +53,7 @@ $user = (new \Gamekeeper\Model\User())->getuserbyid($_SESSION['user_id']);
         </div>
 
         <a href="index.php?page=modifieprofil" class="btn">Modifier le profil</a>
-        <a href="index.php?page=Deconnexion" class="btn">Se déconnecter</a>
+        <a href="index.php?page=Deconnexion" class="btn-annuler">Se déconnecter</a>
 
     </div>
 </div>

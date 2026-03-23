@@ -163,6 +163,10 @@ body {
     font-weight: 600;
     color: #0070d1;
 }
+.categorie-content{
+    border-radius: 10px;
+
+}
 
 .btn-retour {
     display: inline-block;

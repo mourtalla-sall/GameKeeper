@@ -16,6 +16,7 @@ $data->execute();
 $resultats = $data->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <link rel="stylesheet" href="index.css">
+
 <main>
     <section class="content">
         <div class="content-text">
@@ -38,10 +39,9 @@ $resultats = $data->fetchAll(PDO::FETCH_ASSOC);
                     $name = $value['name'];
                     $description = $value['description'];
                     echo "<div class='categorie-content'>";
-                    echo "<img src='' alt='img'>";
                     echo "<h1>Jeux $name</h1>";
                     echo "<p> $description </p>";
-                    echo "<a href='index.php?page=categorie_detail&id={$value['id']}' class='btn-voir'>Voir tout</a>";
+                    echo "<a  href='index.php?page=categorie_detail&id={$value['id']}' class='btn-voir'>Voir tout</a>";
 
                 echo "</div>";
                    

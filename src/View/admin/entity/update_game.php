@@ -91,7 +91,7 @@ $publishers = $publisher->getAll();
 
                 <label>Image de Couverture</label>
                 <?php if (!empty($game_data['cover_image'])): ?>
-                <img src="../../upload/<?= $game_data['cover_image'] ?>" style="height:60px; border-radius:6px; display:block; margin-bottom:8px">
+                <img src="../../upload/<?= $game_data['cover_image'] ?>">
                 <?php endif; ?>
                 <input type="file" name="cover_image" accept="image/jpeg,image/png,image/webp"><br>
 
@@ -125,7 +125,7 @@ $publishers = $publisher->getAll();
                 <button type="submit" name="submit">Mettre à jour</button>
             </form>
 
-            <button><a href="../index.php?page=dashboard">Annuler</a></button>
+            <button class="btn-annuler"><a href="../index.php?page=dashboard">Annuler</a></button>
 
         </div>
     </div>

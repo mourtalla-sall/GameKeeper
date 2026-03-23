@@ -60,6 +60,7 @@ class AdminController {
         $allowed = ['image/jpeg', 'image/png', 'image/webp'];
         $maxSize = 5 * 1024 * 1024;
 
+
         if (!in_array($_FILES['cover_image']['type'], $allowed)) {
             die("Format non supporté. JPG, PNG ou WEBP uniquement.");
         }
@@ -68,7 +69,7 @@ class AdminController {
         }
 
         // Sauvegarde du fichier
-        $ext      = pathinfo($_FILES['cover_image']['name'], PATHINFO_EXTENSION);
+        $ext = pathinfo($_FILES['cover_image']['name'], PATHINFO_EXTENSION);
         $filename = uniqid('game_') . '.' . $ext;
         $uploadDir = __DIR__ . '/../../upload/';
         move_uploaded_file($_FILES['cover_image']['tmp_name'], $uploadDir . $filename);

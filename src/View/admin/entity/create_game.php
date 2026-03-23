@@ -60,7 +60,7 @@ $publishers = $publisher->getAll();
                 <p><?= $message ?></p>
             <?php endif; ?>
 
-            <form method="post">
+            <form method="post" enctype="multipart/form-data">
                 <h1>Créer un Jeu</h1>
 
                 <label>Titre du Jeu</label>

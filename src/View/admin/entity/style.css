@@ -81,15 +81,26 @@ button[type="submit"]:hover {
 button a {
     display: flex;
     justify-content: center;
-    color: #888;
+    color: #ffffff;
     text-decoration: none;
     font-size: 1rem;
     font-weight: bold;
-    border-radius: 6px;
     cursor: pointer;
-    padding: 6px;
 }
 
-button a:hover {
-    color: #333;
+.btn-annuler {
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px;
+    background-color: #e53e3e;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-annuler:hover {
+    background-color: #c0392b;
 }

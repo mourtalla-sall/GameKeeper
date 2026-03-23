@@ -80,7 +80,7 @@
 </table>
 
 </div>
-        <a href="index.php?page=Deconnexion" class="btn">Se déconnecter</a>
+        <a href="index.php?page=Deconnexion" class="btn-supprimer">Se déconnecter</a>
 
 </body>
 </html>
